@@ -1,0 +1,29 @@
+extend type Mutation{
+	createAuthor(author:AuthorInput):AuthorDto
+	updateAuthor(input:AuthorUpdateInput):AuthorDto
+	deleteAuthor(id:Int):String
+}
+
+extend type Query{
+	getAuthors:[AuthorDto]
+	getAuthor(id:Int):AuthorDto
+
+}
+
+
+input AuthorInput
+{
+	name:String
+}
+
+input AuthorUpdateInput
+{
+	id:Int
+	name:String
+}
+
+type AuthorDto
+{
+	id:ID!
+	name:String
+}

@@ -1,0 +1,39 @@
+extend type Query {
+ 	allBooks:[BookDto]
+	getBook(bookId:Int):BookDto
+}
+
+extend type Mutation {
+ 	createBook(book:BookInput):BookDto
+	updateBook(input:UpdateInput):BookDto
+	deleteBook(bookId:Int):String
+}
+
+type BookDto
+{
+	id:ID
+	title:String
+	description:String
+	#author:String
+	price:Int
+	pages:Int
+	author:AuthorDto
+}
+
+input BookInput
+{
+	title:String
+	description:String
+	author:Int
+	price:Int
+	pages:Int
+}
+
+input UpdateInput 
+{
+	id:Int
+	title:String
+	price:Int
+	pages:Int
+
+}
